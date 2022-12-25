@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="{{url_for('static', filename='styles.css')}}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Machine Learning</title>
+</head>
+<body>
+    <div class="container contact-form">
+        <div class="contact-image">
+            <img src="https://pwk.unpas.ac.id/wp-content/uploads/2021/07/unnamed.png" alt="rocket_contact"/>
+        </div>
+        <form action="{{url_for('predict')}}" method="post">
+            <h3>Klasifikasi Waktu Kelulusan Mahasiswa Semester Akhir</h3>
+           <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" name="mka" class="form-control" placeholder="Jumlah mka" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="sks" class="form-control" placeholder="Jumlah sks" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="ipk" class="form-control" placeholder="Nilai IPK" value="" />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-danger btn-block btn-large">Prediksi</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3>Hasil Prediksi Kelulusan :</h3>
+                    <h3>{{ prediction_text }}</h3>
+                    <br>
+                    <ul>
+                        <li style="list-style: none;">Jumlah mka : {{ mka }}</li>
+                        <li style="list-style: none;">Jumlah sks : {{ sks }}</li>
+                        <li style="list-style: none;">Nilai IPK : {{ ipk }}</li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
